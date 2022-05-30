@@ -1,0 +1,148 @@
+@use '../globals/mixin' as m;
+@use '../globals/color' as c;
+.footer{
+  position: relative;
+  color: c.$gray;
+  background-color: c.$deepBlack;
+  margin-top:4.5rem;
+  padding: 5rem 9% 2rem 9%;
+  display: grid;
+  gap:2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+            "a b"
+            "c e"
+            "d e";
+
+    @include m.breakpoint-down(medium) {
+      grid-template-areas: 
+            "a a"
+            "b b"
+            "c c"
+            "d e";
+    }
+
+    @include m.breakpoint-down(small) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'a' 'b' 'c' 'd' 'e';
+      text-align: center;
+    }
+
+  .orange-line{
+    display: block;
+    position: absolute;
+    background-color: c.$orange;
+    left: 9%;
+    top:0;
+    width: 6.5rem;
+    height: 5px;
+
+    @include m.breakpoint-down(small) {
+      left:50%;
+      transform: translateX(-50%);
+    }
+
+  }
+
+  &-logo {
+    grid-area: a;
+    @include m.breakpoint-down(medium) {
+      height: 1.5625rem;
+    }
+    
+    &::after{
+      content:"";
+      display: block;
+      width: 2rem;
+      height:1rem;
+      position: absolute;
+      background-color: c.$orange;
+      top:0;
+      left:0;
+    }
+  }
+
+  
+
+  &-menu {
+    grid-area: b;
+
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include m.breakpoint-down(medium) {
+      justify-content:flex-start
+    }
+
+    @include m.breakpoint-down(small) {
+      flex-direction: column;
+      margin: 1.3rem 0 1rem 0;
+
+
+    }
+
+    a{
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+        
+        @include m.breakpoint-down(small) {
+          margin: 0 0 2rem 0;
+        }
+      }
+        
+    }
+
+    a:hover {
+      color:c.$orange;
+      transition: all 250ms ease-in-out;
+    }
+
+  }
+
+  .about{
+    width: 90%;
+    grid-area:c;
+    color:gray;
+
+    @include m.breakpoint-down(small) {
+      width: 100%;
+    }
+  }
+
+  .copyright{
+    grid-area:d;
+    color:gray;
+
+    @include m.breakpoint-down(medium) {
+      font-size: 14px;
+    }
+  }
+  
+  .social{
+    grid-area:e;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include m.breakpoint-down(small) {
+      justify-content: center;
+    }
+
+    a{
+      &:not(:last-child) {
+        margin-right: 2rem;}
+
+        @include m.breakpoint-down(small) {
+          margin:0;
+        }
+      }
+
+    img:hover{
+      filter: invert(48%) sepia(7%) saturate(4573%) hue-rotate(341deg) brightness(114%) contrast(82%);
+      transition: all 250ms ease-in-out;
+
+    }
+    }
+}

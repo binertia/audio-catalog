@@ -1,0 +1,114 @@
+@use '../globals/mixin' as m;
+
+
+header {
+  display: flex;
+  position:fixed !important;
+  top: 0;
+  left: 0;
+  width:100%;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: black;
+  padding-left: 3%;
+  padding-right: 3%;
+  z-index: 2;
+
+  @include m.breakpoint-down(medium) {
+    padding-left: 90px;
+    padding-right: 30px;
+    justify-content: space-between;
+  }
+
+  @include m.breakpoint-down(small) {
+    padding-left: 46px;
+  }
+
+  &::before {
+    display:none;
+
+    @include m.breakpoint-down(small) {
+      content: "";
+      display: block;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 84%;
+    display: block;
+    height: 1px;
+    left: 8%;
+    right: auto;                   
+    top: 93px;
+    background: gray;
+
+    @include m.breakpoint-down(medium) {
+      left: 0;
+      right:0;
+      width:100%;
+    }
+  }
+
+  .nav-menu {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 702px;
+
+    @include m.breakpoint-down(medium) {
+      display:none;
+    }
+
+
+    &::after {
+      content:"";
+      width: 180px;
+    }
+  }
+
+  .nav-cart {
+    @include m.breakpoint-down(medium) {
+      height: 1.25rem;
+    }
+  }
+
+
+  .nav-logo {
+    @include m.breakpoint-down(medium) {
+      height: 1.5625rem;
+    }
+
+  }
+}
+
+#Hamburger {
+  display:none;
+  cursor:pointer;
+
+  @include m.breakpoint-down(medium) {
+    display:block;
+    position:absolute;
+    left:35px;
+    top:36px;
+  }
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background-color: white;
+
+    @include m.breakpoint-down(small) {
+      width: 18px;
+    }
+
+    &:not(:last-child) {   
+        margin-bottom: 5px; 
+    }
+  }
+}

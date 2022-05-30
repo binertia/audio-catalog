@@ -1,0 +1,120 @@
+@use '../globals/color' as c;
+@use '../globals/mixin' as m;
+
+.background-toggle {
+  display:none;
+  
+  @include m.breakpoint-down(medium) {
+    display: block;
+    margin-top: 5.7rem;
+  }
+  
+}
+.wrap-menu{
+  position: relative;
+  left:0;
+  width: 100%;
+  background-color: c.$white;
+  opacity: 0.99;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  z-index: 1;
+  @include m.breakpoint-down(small) {
+    margin-top: 3rem;
+  }
+ 
+  .menu{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 2% 0 2%;
+    z-index: 3;
+
+    @include m.breakpoint-down(medium){
+      position: relative;
+      align-self: start;
+      padding: 3rem 1rem 1rem 1rem;
+    }
+    @include m.breakpoint-down(small){
+      position: relative;
+      flex-direction:column;
+      align-items: center;
+      padding: 1rem 4% 2.7rem 4%;
+    }
+
+    &_wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      color: c.$deepBlack;
+      width: 30%;
+      padding: 1rem 1rem 0rem 1rem;
+      margin: 0;
+
+
+      @include m.breakpoint-down(medium) {
+        position: relative;
+
+      }
+
+      @include m.breakpoint-down(small) {
+        height: 230px;
+        width: 90%;
+        padding: 0 1rem 0rem 1rem;
+      }
+
+
+      &::after {
+        content: "";
+        display: block;
+        position: relative;
+        border-radius: 0.5rem;
+        background-color: hsl(0, 0%, 84%);
+        width:100%;
+        height:10.3125rem;                 
+        bottom: 9.1875rem;
+        z-index: -1;
+
+        @include m.breakpoint-down(medium) {
+          width:100%;
+          height:10.3125rem;
+        }
+
+        @include m.breakpoint-down(small) {
+          position: absolute;
+          width:100%;
+          height:10.5rem;
+          bottom: 1.5rem;
+        }
+      }
+
+      h6{
+        margin-bottom:1.5rem;
+      }
+
+      a {
+        color: grey;
+      }
+
+
+      .img-menu {
+        
+        width: 7.68rem;
+      }
+    }
+
+
+  }
+}
+
+.sticky {
+
+  position: fixed;
+  top:5.5rem;
+  margin-top:7px;
+  
+}
+
+.pop {
+  z-index: 5;
+}
